@@ -1,0 +1,36 @@
+# PyInstaller output
+dist/
+build/
+*.spec
+
+# Downloads folder
+downloads/
+
+# Temp files
+logo_b64.txt
+yt-dlp.exe
+
+# Old files
+downloader_gui.py
+build.bat
+
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Virtual envs
+venv/
+.venv/
+env/
+
+# OS
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# IDE
+.vscode/
+.idea/
+*.code-workspace

@@ -1,0 +1,14 @@
+# Video Downloader GUI — Dependencies
+# pip install -r requirements.txt
+
+# Modern UI framework
+customtkinter>=5.2.0
+
+# HTTP requests to n8n
+requests>=2.31.0
+
+# yt-dlp: YouTube, Twitch, Twitter, TikTok downloader (must also be on PATH)
+yt-dlp>=2024.1.0
+
+# PyInstaller to build the .exe (run separately)
+pyinstaller>=6.0.0
