@@ -48,10 +48,12 @@ FORMATS = {"mp4": "MP4", "mkv": "MKV", "webm": "WEBM", "mp3": "MP3 (audio)", "m4
 QUALITIES = {"best": "Best", "2160": "4K (2160p)", "1080": "1080p", "720": "720p", "480": "480p", "360": "360p"}
 
 def _find_ytdlp():
+    flags = subprocess.CREATE_NO_WINDOW if sys.platform == "win32" else 0
     for p in YTDLP_CANDIDATES:
         if not p: continue
         try:
-            r = subprocess.run([p, "--version"], capture_output=True, timeout=6)
+            r = subprocess.run([p, "--version"], capture_output=True, timeout=6,
+                               creationflags=flags)
             if r.returncode == 0:
                 return p
         except Exception:

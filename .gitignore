@@ -1,7 +1,7 @@
 # PyInstaller output
 dist/
 build/
-*.spec
+VideoDownloader.spec
 
 # Downloads folder
 downloads/
