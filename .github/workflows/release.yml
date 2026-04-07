@@ -1,0 +1,32 @@
+name: Build and Release NYO.exe
+
+on:
+  release:
+    types: [created]
+
+jobs:
+  build:
+    runs-on: windows-latest
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install dependencies
+        run: pip install pywebview pyinstaller customtkinter requests
+
+      - name: Download yt-dlp.exe
+        run: curl -L "https://github.com/yt-dlp/yt-dlp/releases/latest/download/yt-dlp.exe" -o yt-dlp.exe
+
+      - name: Build EXE with PyInstaller
+        run: pyinstaller NYO.spec
+
+      - name: Upload EXE to Release
+        uses: softprops/action-gh-release@v2
+        with:
+          files: dist/NYO.exe
